@@ -1150,7 +1150,7 @@
     </p>
 
     <div class="contact-form-wrap">
-      <form id="contactForm" onsubmit="handleSubmit(event)">
+      <form id="contactForm" action="https://formspree.io/f/xbdwkepk" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="fname">
@@ -1185,8 +1185,8 @@
         <p data-lang="en">We'll reply within 48 hours. You can also <a href="mailto:info@uplandssolutions.com" style="color: var(--carso-orange);">write to us directly</a>.</p>
       </div>
       <p class="cta-email-alt">
-        <span data-lang="it">Preferisci la email diretta? <a href="/cdn-cgi/l/email-protection#0c65626a634c797c606d62687f7f636079786563627f226f6361">Scrivici</a></span>
-        <span data-lang="en">Prefer direct email? <a href="/cdn-cgi/l/email-protection#ef86818980af9a9f838e818b9c9c80839a9b8680819cc18c8082">Write to us</a></span>
+        <span data-lang="it">Preferisci la email diretta? <a href="mailto:info@uplandssolutions.com">Scrivici</a></span>
+        <span data-lang="en">Prefer direct email? <a href="mailto:info@uplandssolutions.com">Write to us</a></span>
       </p>
     </div>
   </div>
@@ -1232,7 +1232,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   /* ── Hamburger menu ──────────────────────────────── */
   function toggleMenu() {
     const btn = document.getElementById('hamburgerBtn');
@@ -1279,12 +1279,24 @@
   setLang(savedLang);
 
   /* ── Form submit ─────────────────────────────────── */
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
-    form.style.display = 'none';
-    success.style.display = 'block';
+    const btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      btn.disabled = false;
+      alert('Invio fallito. Riprova o scrivici direttamente a info@uplandssolutions.com');
+    }
   }
 
   /* ── Nav scroll effect ───────────────────────────── */
