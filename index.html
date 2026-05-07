@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Uplands Solutions</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='8' fill='%23232820'/%3E%3Cpath d='M4 44 L4 30 L10 22 L15 25 L20 18 L26 21 L31 14 L36 17 L40 12 L44 14 L44 44 Z' fill='%233D5A40' opacity='0.45'/%3E%3Cpath d='M4 30 L10 22 L15 25 L20 18 L26 21 L31 14 L36 17 L40 12 L44 14' stroke='%23EFECE5' stroke-width='1' fill='none' opacity='0.5'/%3E%3Cline x1='4' y1='30' x2='44' y2='30' stroke='%23C8723A' stroke-width='1.5'/%3E%3Ctext x='5' y='30' font-family='sans-serif' font-size='22' font-weight='700' fill='%23EFECE5' letter-spacing='-0.5'%3EU%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
@@ -738,6 +739,11 @@
     padding: 0;
     margin: 0;
   }
+  .mobile-nav-links li {
+    background: var(--calcare-chiaro);
+    border-bottom: 1px solid var(--calcare-medio);
+  }
+  .mobile-nav-links li:last-child { border-bottom: none; }
   .mobile-nav-links li a {
     display: block;
     font-family: 'DM Sans', sans-serif;
@@ -745,11 +751,11 @@
     color: var(--testo-corpo);
     text-decoration: none;
     padding: 14px 24px;
-    border-bottom: 1px solid var(--calcare-medio);
+    background: inherit;
     transition: background 0.15s;
   }
-  .mobile-nav-links li:last-child a { border-bottom: none; }
-  .mobile-nav-links li a:hover { background: var(--calcare-medio); }
+  .mobile-nav-links li a:hover,
+  .mobile-nav-links li:hover { background: var(--calcare-medio); }
 
   .mobile-nav-bottom {
     display: flex;
@@ -1180,12 +1186,12 @@
           <span data-lang="it">Messaggio ricevuto.</span>
           <span data-lang="en">Message received.</span>
         </div>
-        <p data-lang="it">Ti rispondo entro 48 ore. Se preferisci, puoi anche <a href="mailto:info@uplandssolutions.com" style="color: var(--carso-orange);">scrivermi direttamente</a>.</p>
-        <p data-lang="en">I'll reply within 48 hours. You can also <a href="mailto:info@uplandssolutions.com" style="color: var(--carso-orange);">write directly</a>.</p>
+        <p data-lang="it">Ti rispondo entro 48 ore. Se preferisci, puoi anche <a href="/cdn-cgi/l/email-protection#fa93949c95ba8f8a969b949e898995968f8e93959489d4999597" style="color: var(--carso-orange);">scrivermi direttamente</a>.</p>
+        <p data-lang="en">I'll reply within 48 hours. You can also <a href="/cdn-cgi/l/email-protection#f1989f979eb184819d909f9582829e9d8485989e9f82df929e9c" style="color: var(--carso-orange);">write directly</a>.</p>
       </div>
       <p class="cta-email-alt">
-        <span data-lang="it">Preferisci la email diretta? <a href="mailto:info@uplandssolutions.com">Scrivici</a></span>
-        <span data-lang="en">Prefer direct email? <a href="mailto:info@uplandssolutions.com">Write to us</a></span>
+        <span data-lang="it">Preferisci la email diretta? <a href="/cdn-cgi/l/email-protection#b9d0d7dfd6f9ccc9d5d8d7ddcacad6d5cccdd0d6d7ca97dad6d4">Scrivici</a></span>
+        <span data-lang="en">Prefer direct email? <a href="/cdn-cgi/l/email-protection#4b22252d240b3e3b272a252f383824273e3f2224253865282426">Write to us</a></span>
       </p>
     </div>
   </div>
@@ -1231,7 +1237,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ── Hamburger menu ──────────────────────────────── */
   function toggleMenu() {
     const btn = document.getElementById('hamburgerBtn');
